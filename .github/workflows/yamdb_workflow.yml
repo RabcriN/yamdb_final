@@ -35,7 +35,6 @@ jobs:
         uses: actions/checkout@v2 
       - name: Build the Docker image 
         run: |
-          cd api_yamdb/
           docker build . --file Dockerfile --tag web:latest
         # Вызов сборщика контейнеров docker
         # uses: docker/setup-buildx-action@v1 
