@@ -7,10 +7,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('SECRET_KEY', default="p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs")
 
 DEBUG = strtobool(os.environ.get('DEBUG', default='False'))
-# Андрей Черников: "Вообще хотел пометить как "можно лучше", но молодец, что справился!" - теперь
-# мне интересно, как можно было лучше :) Я нашёл варианты DEBUG = os.environ['DEBUG_VALUE'] == 'TRUE'
-# или DEBUG = os.environ.get('DEBUG_VALUE').lower() == 'true' и подобные, но мне
-# мой вариант понравился больше :)
 
 ALLOWED_HOSTS = ["*"]
 
