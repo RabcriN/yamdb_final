@@ -10,7 +10,7 @@ services:
       - ./.env
   
   web:
-    image: rabcrin/name:latest
+    image: rabcrin/web:latest
     restart: always
     volumes:
       - static_value:/app/static/
