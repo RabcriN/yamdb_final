@@ -23,13 +23,64 @@
 git clone https://github.com/RabcriN/yamdb_final
 ```
 
+Добавить в https://github.com/<your_name>/yamdb_final/settings/secrets/actions
+следующие ключи:
+```
+
+SECRET_KEY - Секретный ключ Вашего проекта для settings.py.
+
+DEBUG - Выбрать режим разработки или отладки (по умолчанию False).
+Варианты значений для "DEBUG": True values are "y", "yes", "t", "true", "on" and "1". False values are "n", "no", "f", "false", "off" and "0".
+ 
+DB_ENGINE- Параметр указывает на используемый движок для доступа к БД.
+По умолчанию используется Postgres.
+
+DB_NAME - Имя базы данных.
+
+POSTGRES_USER - Имя учётной записи для суперпользователя в Postgres.
+
+POSTGRES_PASSWORD - Пароль для суперпользователя в Postgres.
+
+DB_HOST - IP-адрес удаленной БД.
+По умолчанию БД берётся из docker-контейнера под названием "db".
+
+DB_PORT - Порт для подключения к БД.
+По умолчанию для Postgres - 5432
+```
+
+### Если хотите получать уведомления в Telegram о том, что процесс деплоя успешно завершился,
+### добавьте следующие ключи:
+```
+TELEGRAM_TO - ID своего телеграм-аккаунта. Узнать свой ID можно у бота @userinfobot.
+TELEGRAM_TOKEN - Токен вашего бота. Получить этот токен можно у бота @BotFather.
+```
+
 ### Проект автоматически разворачивается по адресу 84.201.160.143
 ### при внесении изменений и команде git push 
+
+Выполняем миграции:
+```
+sudo docker-compose exec web python manage.py migrate
+```
+Создаём суперюзера:
+```
+sudo docker-compose exec web python manage.py createsuperuser
+```
+Собираем статику:
+
+```
+sudo docker-compose exec web python manage.py collectstatic --no-input 
+```
 
 Админка доступна по адресу:
 
 ```
 http://84.201.160.143/admin/
+```
+### Если используете Google Chrome:
+Если админка отображается не корректно, очистите cache сочетанием клавиш
+```
+Ctrl+Shift+F5
 ```
 
 Полная документация доступна по адресу:
