@@ -77,10 +77,12 @@ sudo docker-compose exec web python manage.py collectstatic --no-input
 ```
 http://84.201.160.143/admin/
 ```
-### Если используете Google Chrome:
-Если админка отображается не корректно, очистите cache сочетанием клавиш
+### Если используете Google Chrome и админка отображается некорректно:
+
+Перезагрузите страницу, игнорируя кэшированное содержимое.
+
 ```
-Ctrl+Shift+F5
+Ctrl + F5 (Shift + F5) или Ctrl + Shift + R
 ```
 
 Полная документация доступна по адресу:
